@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screen_recording/theme/app_color.dart';
+import 'package:screen_recording/widgets/build_header.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               // Top Header
-              _buildHeader(),
+             BuildHeader(),
               
               SizedBox(height: 40),
               
@@ -44,28 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-    );
-  }
-  
-  // Header with app name
-  Widget _buildHeader() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          'Screen Recorder',
-          style: TextStyle(
-            color: AppColors.white,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Icon(
-          Icons.settings,
-          color: AppColors.grey,
-          size: 24,
-        ),
-      ],
     );
   }
   

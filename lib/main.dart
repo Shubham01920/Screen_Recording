@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:screen_recording/pages/home_page.dart';
-import 'package:screen_recording/screen.dart';
+import 'package:screen_recording/onboarding/onboarding.dart';
+import 'package:screen_recording/pages/setting_page.dart';
 import 'package:screen_recording/theme/app_color.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         fontFamily: 'Inter', // You can change this later
       ),
-      home: ScreenRecorderPage(),
+      home: SettingPage()
     );
   }
 }
