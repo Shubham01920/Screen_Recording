@@ -1,10 +1,10 @@
+// lib/widgets/common/page_indicator_dot.dart
 import 'package:flutter/material.dart';
 import 'package:screen_recording/theme/app_color.dart';
 
-
+// Animated dot for page indicators
 class PageIndicatorDot extends StatelessWidget {
   final bool isActive;
-
   const PageIndicatorDot({super.key, required this.isActive});
 
   @override

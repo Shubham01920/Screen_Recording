@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:screen_recording/theme/app_color.dart';
-import 'package:screen_recording/widgets/build_page_indicator.dart';
+import 'package:screen_recording/widgets/common/page_indicator.dart';
 
 
 class OnboardingPage extends StatefulWidget {

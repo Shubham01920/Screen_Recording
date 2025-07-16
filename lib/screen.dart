@@ -163,7 +163,7 @@ class _ScreenRecorderPageState extends State<ScreenRecorderPage> {
       
       setState(() {
         isRecording = false;
-        recordingPath = path ?? 'Recording saved';
+        recordingPath = path;
       });
       
       // Show success message
