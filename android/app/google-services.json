@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "551850608952",
+    "project_id": "recording-extension",
+    "storage_bucket": "recording-extension.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551850608952:android:9af2eb3cfc0f32e67bd9cd",
+        "android_client_info": {
+          "package_name": "com.example.screen_recording"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpTwgPfpGIZFiPt8PodwYCRYIpm14TbyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

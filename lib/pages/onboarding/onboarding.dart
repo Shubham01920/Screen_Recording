@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart'; // ✅ required
+import 'package:screen_recording/auth/login_page.dart';
+import 'package:screen_recording/auth/sign_up_page.dart';
 import 'package:screen_recording/theme/app_color.dart';
 import 'package:screen_recording/widgets/common/page_indicator.dart';
-
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -44,9 +46,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
     });
 
     _signInRecognizer = TapGestureRecognizer()
-      ..onTap = () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Navigating to Sign In...')),
+      ..onTap = () async {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('onboarding_seen', true); // ✅ Save onboarding seen
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const LoginPage()), // ✅ Go to Login
         );
       };
   }
@@ -67,7 +73,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: const EdgeInsets.fromLTRB(22.0, 22.0, 22.0, 30.0),
           child: Column(
             children: [
-              // Onboarding content
               Expanded(
                 child: PageView.builder(
                   controller: _pageController,
@@ -112,7 +117,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
               ),
 
-              // Page indicators
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -123,7 +127,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
               const SizedBox(height: 40),
 
-              // Sign Up Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -135,8 +138,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  onPressed: () {
-                    print("Sign Up button pressed!");
+                  onPressed: () async {
+                    final prefs = await SharedPreferences.getInstance();
+                    await prefs.setBool(
+                      'onboarding_seen',
+                      true,
+                    ); // ✅ Save onboarding seen
+
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => const SignupPage()),
+                    );
                   },
                   child: const Text(
                     "Sign Up",
@@ -147,7 +159,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
               const SizedBox(height: 20),
 
-              // Sign In Link
               Text.rich(
                 TextSpan(
                   style: const TextStyle(fontSize: 16, color: AppColors.grey),
